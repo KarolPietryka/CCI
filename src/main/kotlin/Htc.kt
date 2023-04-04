@@ -1,11 +1,24 @@
 import data.structure.LinkedList
+import task.graph.ListOfDepths
 import task.graph.MinimalTree
 import task.graph.structure.graph.Graph
 import task.graph.structure.graph.Node
 import task.graph.RouteBetweenNodes
+import task.graph.structure.tree.TreeNode
 
 fun main() {
-    val array = listOf(1,3,5,6,7,8,9)
-    MinimalTree().create(array)
+    val node = TreeNode(5).apply {
+        left = TreeNode(4).apply {
+            left = TreeNode(3)
+            right = TreeNode(5)
+        }
+        right = TreeNode(6).apply {
+            right = TreeNode(7)
+        }
+    }
 
+    val levelLists = ListOfDepths().createWithBreadth(node)
+    for (levelList in levelLists) {
+        println(levelList)
+    }
 }

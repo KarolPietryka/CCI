@@ -7,19 +7,25 @@ open class Queue<T>() {
     }
     constructor(headData: T) : this() {
         head = Node(headData)
-        last =head
+        last = head
     }
     var head: Node<T>? = null
     var last: Node<T>? = null
 
 
     open fun push(data: T) {
-        last?.next = Node(data)
-        last = last?.next
+        if(head == null) {
+            head = Node(data)
+            last = head
+        }else {
+            last?.next = Node(data)
+            last = last?.next
+        }
     }
     open fun pop(): T?{
         val headToPop = head
         head = head?.next
+        if(head?.next == null){last = head}
         return headToPop?.data
     }
     open fun peek(): T? = head?.data

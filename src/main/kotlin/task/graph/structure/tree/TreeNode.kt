@@ -11,19 +11,13 @@ class TreeNode<T: Comparable<T>> (val data: T){
         val treeQueue = Queue<TreeNode<T>>()
         treeQueue.push(this)
         while (treeQueue.last != null){
-            val last = treeQueue.pop()!!
+            val last = treeQueue.pop()!!//.let { if(it == null) return else it }
             last.left?.let { treeQueue.push(it) }
             last.right?.let { treeQueue.push(it) }
             depthCounter++
         }
         return depthCounter
     }
-    fun addChild(data: T){
-        if(data <= this.data) addChildAt(data, left)
-        else addChildAt(data, right)
-    }
-    private fun addChildAt(data: T, sideOfChild: TreeNode<T>?) =
-        sideOfChild?.addChild(data) ?: TreeNode(data)
 
 
 
