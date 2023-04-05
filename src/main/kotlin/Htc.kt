@@ -1,5 +1,6 @@
 import data.structure.LinkedList
 import task.graph.ListOfDepths
+import task.graph.ListOfDepthsJ
 import task.graph.MinimalTree
 import task.graph.structure.graph.Graph
 import task.graph.structure.graph.Node
@@ -17,7 +18,7 @@ fun main() {
         }
     }
 
-    val levelLists = ListOfDepths().createWithBreadth(node)
+    val levelLists = ListOfDepthsJ().createWithBreadth(node)
     for (levelList in levelLists) {
         println(levelList)
     }
