@@ -18,7 +18,7 @@ fun main() {
         }
     }
 
-    val levelLists = ListOfDepthsJ().createWithBreadth(node)
+    val levelLists = ListOfDepthsJ().createWithListDive(node)
     for (levelList in levelLists) {
         println(levelList)
     }

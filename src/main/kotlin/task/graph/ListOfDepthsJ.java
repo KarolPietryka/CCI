@@ -5,6 +5,7 @@ import data.structure.Queue;
 import task.graph.structure.tree.TreeNode;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class ListOfDepthsJ {
@@ -44,5 +45,32 @@ public class ListOfDepthsJ {
             visitedNodes++;
         }
         return levelList;
+    }
+
+    public Collection<LinkedList<Integer>> createWithListDive(TreeNode<Integer> rootTreeNode){
+        ArrayList<LinkedList<TreeNode<Integer>>> levelList = new ArrayList<>();
+        LinkedList<TreeNode<Integer>> currentLvl = new LinkedList<>();
+        currentLvl.add(rootTreeNode);
+        while (currentLvl.size() > 0){
+            levelList.add(currentLvl);
+            LinkedList<TreeNode<Integer>> parentLvl = currentLvl;
+            LinkedList.Node<TreeNode<Integer>> parent = parentLvl.getHead();
+            currentLvl = new LinkedList<>();
+            while (parent != null){
+                Optional.ofNullable(parent.getData().getLeft()).ifPresent(currentLvl::add);
+                Optional.ofNullable(parent.getData().getRight()).ifPresent(currentLvl::add);
+                parent = parent.getNext();
+            }
+        }
+        return levelList.stream().map(level -> {
+            LinkedList.Node<TreeNode<Integer>> c = level.getHead();
+            LinkedList<Integer> res = new LinkedList<>();
+            while (c != null) {
+                res.add(c.getData().getData());
+                c = c.getNext();
+            }
+            return res;
+            }
+        ).collect(Collectors.toList());
     }
 }
