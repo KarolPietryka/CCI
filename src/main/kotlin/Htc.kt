@@ -1,10 +1,4 @@
-import data.structure.LinkedList
-import task.graph.ListOfDepths
-import task.graph.ListOfDepthsJ
-import task.graph.MinimalTree
-import task.graph.structure.graph.Graph
-import task.graph.structure.graph.Node
-import task.graph.RouteBetweenNodes
+import task.graph.*
 import task.graph.structure.tree.TreeNode
 
 fun main() {
@@ -18,8 +12,6 @@ fun main() {
         }
     }
 
-    val levelLists = ListOfDepthsJ().createWithListDive(node)
-    for (levelList in levelLists) {
-        println(levelList)
-    }
+    println(CheckBalancedJ().isBalanced(node))
+
 }
