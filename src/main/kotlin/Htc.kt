@@ -12,6 +12,6 @@ fun main() {
         }
     }
 
-    println(CheckBalancedJ().isBalanced(node))
+    println(ValidateBst().validate(node))
 
 }
