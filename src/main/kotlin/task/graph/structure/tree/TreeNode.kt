@@ -2,10 +2,10 @@ package task.graph.structure.tree
 
 import data.structure.Queue
 
-class TreeNode<T: Comparable<T>> (val data: T){
+open class TreeNode<T: Comparable<T>> (val data: T){
 
-    var left: TreeNode<T>? = null
-    var right: TreeNode<T>? = null
+    open var left: TreeNode<T>? = null
+    open var right: TreeNode<T>? = null
     fun depth(): Int{
         var depthCounter = 0
         val treeQueue = Queue<TreeNode<T>>()
@@ -19,6 +19,8 @@ class TreeNode<T: Comparable<T>> (val data: T){
         return depthCounter
     }
 
-
+    override fun toString(): String {
+        return data.toString()
+    }
 
 }

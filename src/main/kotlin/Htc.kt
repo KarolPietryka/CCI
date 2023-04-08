@@ -1,17 +1,18 @@
 import task.graph.*
-import task.graph.structure.tree.TreeNode
+import task.graph.structure.tree.TreeNodeWithParent
 
 fun main() {
-    val node = TreeNode(5).apply {
-        left = TreeNode(4).apply {
-            left = TreeNode(3)
-            right = TreeNode(5)
+    val node = TreeNodeWithParent(9, null).apply {
+        left = TreeNodeWithParent(6, this).apply {
+            right = TreeNodeWithParent(8, this).apply {
+                left = TreeNodeWithParent(7, this)
+            }
         }
-        right = TreeNode(6).apply {
-            right = TreeNode(7)
+        right = TreeNodeWithParent(16, this).apply {
+            left = TreeNodeWithParent(11, this)
         }
     }
 
-    println(ValidateBst().validate(node))
+    println(Successor().getSuccessor((node.left) as TreeNodeWithParent<Int>))
 
 }
