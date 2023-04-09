@@ -4,7 +4,10 @@ package data.structure
  * One direction linked list
  * Implemented in head->next->last directed way
  */
-class LinkedList<T> {
+class LinkedList<T> constructor(){
+    constructor(head: Node<T>):this(){
+        this.head = head
+    }
     class Node<T>(var data: T, var next: Node<T>? = null){
         override fun equals(other: Any?): Boolean {
             return if(other is Node<*>){
