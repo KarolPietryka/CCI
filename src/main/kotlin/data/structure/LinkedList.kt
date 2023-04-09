@@ -15,6 +15,28 @@ class LinkedList<T> {
 
     var head: Node<T>? = null
     val last = fun (): T? = lastNode()?.data
+    fun contains(data: T): Boolean{
+        val current = head
+        while (current != null){
+            if(current.data == data) return true
+        }
+        return false
+    }
+    fun get(data: T): T?{
+        var current = head
+        while (current != null){
+            if(current.data == data) return data
+            current = current.next
+        }
+        return null
+    }
+    fun forEach(action: (T)->Unit){
+        var current = head
+        while (current != null){
+            action(current.data)
+            current = current.next
+        }
+    }
     fun size():Int{
         var current = head
         var counter = 0

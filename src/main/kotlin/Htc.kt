@@ -1,18 +1,19 @@
 import task.graph.*
+import task.graph.structure.BuildOrderJ
 import task.graph.structure.tree.TreeNodeWithParent
+import java.util.*
+
 
 fun main() {
-    val node = TreeNodeWithParent(9, null).apply {
-        left = TreeNodeWithParent(6, this).apply {
-            right = TreeNodeWithParent(8, this).apply {
-                left = TreeNodeWithParent(7, this)
-            }
-        }
-        right = TreeNodeWithParent(16, this).apply {
-            left = TreeNodeWithParent(11, this)
-        }
-    }
+    val projects = listOf("a", "b", "c", "d", "e", "f")
+    val dependencies = listOf(
+        Pair("a", "d"),
+        Pair("f", "b"),
+        Pair("b", "d"),
+        Pair("f", "a"),
+        Pair("d", "c")
+    ).toMap()
 
-    println(Successor().getSuccessor((node.left) as TreeNodeWithParent<Int>))
+    println(BuildOrderJ().getOrder(projects, dependencies))
 
 }

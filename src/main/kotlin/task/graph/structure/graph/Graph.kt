@@ -2,9 +2,18 @@ package task.graph.structure.graph
 
 import data.structure.LinkedList
 
-data class Graph (
-    val nodes: LinkedList<Node>,
+open class Graph (
+    val nodes: ArrayList<Node>,
 ){
-    val size = nodes.size()
-    fun root() = nodes[0]?.data
+    constructor():this(ArrayList())
+    val size = nodes.size
+    fun root() = nodes.getOrNull(0)
+
+    fun get(symbol:String) = nodes.find { it.symbol == symbol }
+    fun get(nodeToFind: Node) = nodeToFind.symbol?.let {  get(it) }
+    fun add(nodeToAdd: Node) = nodes.add(nodeToAdd)
+
+    inline fun forEach(action: (Node) -> Unit) {
+        for (element in nodes) action(element)
+    }
 }

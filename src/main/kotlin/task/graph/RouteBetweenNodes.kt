@@ -8,10 +8,10 @@ import task.graph.structure.graph.Node
 //route between two nodes
 class RouteBetweenNodes {
     fun findWithDeepStrategy(graph: Graph, toFind: Node): Boolean{
-        return searchDeep(graph.nodes.head?.data ?: return false, toFind)
+        return searchDeep(graph.root() ?: return false, toFind)
     }
     fun findWithBreadthStrategy(graph: Graph, toFind: Node): Boolean{
-        val helperQueue = Queue(graph.nodes.head?.data ?: return false)
+        val helperQueue = Queue(graph.root() ?: return false)
         while (!helperQueue.isEmpty()){
             val toCheck = helperQueue.pop() ?: return false
             if(toCheck == toFind) return true
