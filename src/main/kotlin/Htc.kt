@@ -1,26 +1,34 @@
-import data.structure.LinkedList
 import task.graph.*
-import task.graph.structure.BuildOrderJ
 import task.graph.structure.tree.TreeNodeWithParent
-import task.list.linked.SumList2
-
 
 fun main() {
-    val list1 = LinkedList<Int>()
-    list1.add(7)
-    list1.add(1)
-    list1.add(6)
 
-    val list2 = LinkedList<Int>()
-    list2.add(5)
-    list2.add(9)
-    list2.add(2)
-
-    val sumList = SumList2()
-    val result = sumList.add(list1, list2)
-
-    println("Input: $list1 + $list2")
-    println("Output: $result")
+    val node = TreeNodeWithParent(1, null).apply {
+        left = TreeNodeWithParent(2, this).apply {
+            left = TreeNodeWithParent(4, this).apply {
+                left = TreeNodeWithParent(8, this)
+                right = TreeNodeWithParent(9, this)
+            }
+            right = TreeNodeWithParent(5, this).apply {
+                left = TreeNodeWithParent(10, this)
+                right = TreeNodeWithParent(11, this)
+            }
+        }
+        right = TreeNodeWithParent(3, this).apply {
+            left = TreeNodeWithParent(7, this).apply {
+                left = TreeNodeWithParent(14, this)
+                right = TreeNodeWithParent(15, this)
+            }
+            right = TreeNodeWithParent(6, this).apply {
+                right = TreeNodeWithParent(12, this).apply {
+                    left = TreeNodeWithParent(13, this)
+                }
+            }
+        }
+    }
+    println(
+        FirstCommonAncestor().findWithCutOnLonger(node.right!!.left as TreeNodeWithParent, node.right!!.right!!.right!!.left!! as TreeNodeWithParent)
+    )
 
 
 }
