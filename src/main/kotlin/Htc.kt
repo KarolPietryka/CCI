@@ -1,3 +1,4 @@
+import task.arrays.CombinationSum
 import task.arrays.NumberOfIslands
 import task.arrays.RottingOranges
 import task.arrays.SearchInRotatedSortedArray
@@ -7,6 +8,6 @@ import task.recursion.TowersOfHanoi
 
 fun main() {
 
- println(SearchInRotatedSortedArray().execute());
+ println(CombinationSum().execute());
 
 }
