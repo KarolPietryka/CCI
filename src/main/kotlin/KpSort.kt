@@ -2,13 +2,14 @@ import java.util.*
 import java.util.stream.Collectors
 
 class KpSort {
-    fun quickSort(arrayList: Array<Int>): Array<Int>{
+    fun quickSort(arrayList: Array<Int>): Array<Int> {
+        if (arrayList.size <= 1) {
+            return arrayList
+        }
         val pivot = arrayList.last()
         var i = 0
-        var j = 1
-        while (j != arrayList.lastIndex){
-            j++
-            if(arrayList[j] < pivot){
+        for (j in 0 until arrayList.lastIndex) {
+            if (arrayList[j] < pivot) {
                 swapArray(arrayList, i, j)
                 i++
             }
