@@ -1,9 +1,7 @@
-import task.arrays.CombinationNoDups
-import task.arrays.CombinationWithDups
-import task.arrays.Permutation
+import task.arrays.TrappingRainWater
 
 fun main() {
 
- println(Permutation().excute());
+ println(TrappingRainWater().execute());
 
 }
