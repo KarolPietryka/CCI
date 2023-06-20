@@ -1,7 +1,8 @@
+import task.arrays.MergeIntervals
 import task.arrays.TrappingRainWater
 
 fun main() {
 
- println(TrappingRainWater().execute());
+ println(MergeIntervals().execute());
 
 }
