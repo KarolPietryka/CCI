@@ -1,8 +1,9 @@
 import task.arrays.MergeIntervals
 import task.arrays.TrappingRainWater
+import task.graph.LowestCommonAncestorOfBinaryTree
 
 fun main() {
 
- println(MergeIntervals().execute());
+ println(LowestCommonAncestorOfBinaryTree().execute());
 
 }
